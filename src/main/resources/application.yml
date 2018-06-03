@@ -1,0 +1,8 @@
+#Can provide DB details here as well as in command line while running JAR
+#By default these properties are passed through command line instead of setting through property file
+db:
+  connection:
+    url: jdbc:mariadb://localhost:3306/
+    userName: root
+    password: yourPassword
+  schemas: "flyway"
