@@ -70,7 +70,9 @@ public class ApplicationExecutor implements ApplicationRunner {
     logSchemaHistory.log();
 
     flyway.setIgnoreFutureMigrations(true);
-    flyway.setLocations(migrationScriptsLocation);
+    final String[] locations = migrationScriptsLocation.split(",");
+    logger.info(String.format("Configured locations %s", Arrays.toString(locations)));
+    flyway.setLocations(locations);
     flyway.setCallbacks(beforeMigrateHook);
 
     logSchemaHistory.log();
